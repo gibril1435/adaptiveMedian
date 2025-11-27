@@ -1,4 +1,4 @@
-# Adaptive Median Filter - Image Denoising Tool
+# Image Denoising Tool
 
 ## 1\. Project Description
 
@@ -36,12 +36,11 @@ You must have **Python** installed. The application uses the following external 
 ### Setup Steps
 
 1.  **Clone the Repository** (or download the files).
-2.  **Create a Virtual Environment** (recommended). The project uses a `.venv` folder, which is ignored by Git.
-3.  **Install Dependencies:** Install the required libraries using pip:
+2.  **Install Dependencies:** Install the required libraries using pip:
     ```bash
     pip install Flask opencv-python numpy scikit-image werkzeug
     ```
-4.  **Create Upload Directory:** The application expects a folder for static content:
+3.  **Create Upload Directory:** The application expects a folder for static content:
     ```bash
     mkdir static/uploads
     ```
@@ -57,7 +56,7 @@ You must have **Python** installed. The application uses the following external 
     ```bash
     python app.py
     ```
-    The application will typically start on `http://127.0.0.1:5000/` in debug mode.
+    The application will typically start on `http://127.0.0.1:5000/`.
 
 ### Web Interface Steps
 
