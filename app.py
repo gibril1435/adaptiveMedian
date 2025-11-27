@@ -1,20 +1,15 @@
-import os
 import cv2
 import numpy as np
 import base64
 import io
 import zipfile
 from flask import Flask, render_template, request, jsonify
-from werkzeug.utils import secure_filename
 from skimage import metrics
 
 app = Flask(__name__)
 
 # Configuration
-UPLOAD_FOLDER = 'static/uploads'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'tiff', 'bmp'}
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 # --- 1. HELPER FUNCTIONS (Restored Full Logic) ---
 
@@ -92,12 +87,6 @@ def create_results_zip(images_data, zip_name):
         "data": zip_base64,
     }
 
-def image_to_base64(image):
-    """Convert OpenCV image to base64 string."""
-    _, buffer = cv2.imencode('.png', image)
-    image_base64 = base64.b64encode(buffer).decode('utf-8')
-    return image_base64
-
 # --- 2. MAIN ROUTE ---
 
 @app.route('/', methods=['GET', 'POST'])
@@ -145,7 +134,9 @@ def index():
             }
 
             # D. PREPARE IMAGE DATA AND ZIP
-            base_name = os.path.splitext(secure_filename(file.filename))[0]
+            # Extract base name from filename (remove extension)
+            original_filename = file.filename if file.filename else 'image'
+            base_name = original_filename.rsplit('.', 1)[0] if '.' in original_filename else original_filename
 
             # Raw image objects and filenames for ZIP creation
             raw_images = {

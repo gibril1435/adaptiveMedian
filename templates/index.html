@@ -21,7 +21,6 @@
             --text-primary: #111111;
             --text-secondary: #555555;
             --accent-blue: #222222;
-            --accent-green: #111111;
             --accent-purple: #333333;
             --border-color: #dddddd;
         }
@@ -751,10 +750,6 @@
                 if (data.success) {
                     currentResultsData = data; // Store for download all button
                     displayResults(data);
-                    // Auto-download ZIP of all results
-                    if (data.zip) {
-                        downloadZip(data.zip);
-                    }
                 } else {
                     alert('Error processing image: ' + (data.error || 'Unknown error'));
                 }
