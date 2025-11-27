@@ -40,10 +40,6 @@ You must have **Python** installed. The application uses the following external 
     ```bash
     pip install Flask opencv-python numpy scikit-image werkzeug
     ```
-3.  **Create Upload Directory:** The application expects a folder for static content:
-    ```bash
-    mkdir static/uploads
-    ```
 
 -----
 
