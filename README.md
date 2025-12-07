@@ -36,7 +36,10 @@ You must have **Python** installed. The application uses the following external 
 ### Setup Steps
 
 1.  **Clone the Repository** (or download the files).
-2.  **Install Dependencies:** Install the required libraries using pip:
+    ```bash
+    git clone https://github.com/gibril1435/adaptiveMedian.git
+    ```
+3.  **Install Dependencies:** Install the required libraries using pip:
     ```bash
     pip install Flask opencv-python numpy scikit-image werkzeug
     ```
